@@ -1,0 +1,7 @@
+<%- include('layouts/main') %>
+<h2>किराया भुगतान</h2>
+<p>आपका मासिक किराया: ₹<%%= tenant.lease.rentAmount %></p>
+<p>भुगतान करने के लिए नीचे दिए गए लिंक पर क्लिक करें:</p>
+<a href="<%%= razorpayLink %>" target="_blank">अभी भुगतान करें (Razorpay)</a>
+<p><i>भुगतान के बाद, यह स्वतः अपडेट नहीं होगा। मकान मालिक से पुष्टि कराएँ।</i></p>
+<a href="/tenant/dashboard">वापस</a>
