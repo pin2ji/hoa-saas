@@ -1,0 +1,31 @@
+<%- include('layouts/main') %>
+<h1>मकान मालिक डैशबोर्ड</h1>
+<p>स्वागत है, <%%= landlord.name %></p>
+<h3>मेरी संपत्तियाँ</h3>
+<ul>
+<%% landlord.properties.forEach(p => { %>
+    <li><%%= p.name %> - <%%= p.address %></li>
+<%% }) %>
+</ul>
+<h4>नई संपत्ति जोड़ें</h4>
+<form action="/landlord/add-property" method="POST">
+    <input name="name" placeholder="नाम" required>
+    <input name="address" placeholder="पता" required>
+    <button type="submit">जोड़ें</button>
+</form>
+<hr>
+<h4>किरायेदार जोड़ें</h4>
+<form action="/landlord/add-tenant" method="POST">
+    <input name="name" placeholder="किरायेदार का नाम" required>
+    <input name="email" type="email" placeholder="ईमेल" required>
+    <input name="phone" placeholder="फ़ोन" required>
+    <select name="propertyId">
+        <%% landlord.properties.forEach(p => { %>
+            <option value="<%%= p._id %>"><%%= p.name %></option>
+        <%% }) %>
+    </select>
+    <input name="rentAmount" type="number" placeholder="मासिक किराया" required>
+    <input name="startDate" type="date" placeholder="शुरू तारीख" required>
+    <button type="submit">जोड़ें</button>
+</form>
+<a href="/auth/logout">लॉगआउट</a>
