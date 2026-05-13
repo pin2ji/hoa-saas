@@ -1,0 +1,14 @@
+<%- include('layouts/main') %>
+<h2>लॉगिन</h2>
+<%% if (locals.error) { %>
+  <p style="color:red"><%%= error %></p>
+<%% } %>
+<form action="/auth/login" method="POST">
+    <select name="role">
+        <option value="landlord">मकान मालिक</option>
+        <option value="tenant">किरायेदार</option>
+    </select>
+    <input type="email" name="email" placeholder="ईमेल" required>
+    <input type="password" name="password" placeholder="पासवर्ड" required>
+    <button type="submit">लॉगिन</button>
+</form>
